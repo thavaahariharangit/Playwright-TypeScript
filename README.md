@@ -9,7 +9,7 @@ Mastering Playwright Test Automation with Typescript
 - [ ] Section 5: Enhancing Test Scripts
 - [ ] Section 6: Test Framework COnfiguration
 
-Ref
+Ref: https://www.udemy.com/course/mastering-playwright-test-automation-with-typescript
 
 
 
