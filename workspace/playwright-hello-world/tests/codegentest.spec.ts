@@ -1,0 +1,18 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://demo.playwright.dev/todomvc/#/');
+  await page.getByPlaceholder('What needs to be done?').click();
+  await page.getByPlaceholder('What needs to be done?').fill('Writing a test');
+  // Resource Locator
+  await page.getByPlaceholder('What needs to be done?').press('Enter');
+  // Assert visibility
+  await expect(page.getByText('Writing a test')).toBeVisible();
+  // Assert text
+  await expect(page.locator('body')).toContainText('Writing a test');
+
+  // Assert Value
+  await page.locator('html').click();
+  await page.locator('li').filter({ hasText: 'Writing a test' }).getByLabel('Toggle Todo').check();
+  await expect(page.locator('li').filter({ hasText: 'Writing a test' }).getByLabel('Toggle Todo')).toBeChecked();
+});
