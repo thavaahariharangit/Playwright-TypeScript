@@ -14,5 +14,5 @@ test('test', async ({ page }) => {
   // Assert Value
   await page.locator('html').click();
   await page.locator('li').filter({ hasText: 'Writing a test' }).getByLabel('Toggle Todo').check();
-  await expect(page.locator('li').filter({ hasText: 'Writing a test' }).getByLabel('Toggle Todo')).toBeChecked();
+  await expect(page.locator('li').filter({ hasText: 'Writing a test' }).getByLabel('Toggle Todo')).not.toBeChecked();
 });
