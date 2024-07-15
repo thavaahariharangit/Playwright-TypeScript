@@ -4,21 +4,23 @@ import { DocsPageModel } from './docsPageModel';
 
 // Declare the types of your fixtures.
 type MyFixtures = {
-    landingPageModel: LandingPageModel;
-    docsPageModel: DocsPageModel;
+    landingPage: LandingPageModel;
+    docsPage: DocsPageModel;
 };
 
 export const test = base.extend<MyFixtures>({
-    landingPageModel: async ({ page }, use) => {
+    landingPage: async ({ page }, use) => {
         const landingPage = new LandingPageModel(page);
         await landingPage.goto();
         await landingPage.getStarted();
+        // Use the fixture value in the test.
+        await use(landingPage);
     },
-    docsPageModel: async ({ page }, use) => {
+    docsPage: async ({ page }, use) => {
         const docsPage = new DocsPageModel(page);
         await docsPage.goto();
         await docsPage.pageObjectModel();
+        await use(docsPage);
     },
 });
-
 export { expect } from '@playwright/test';

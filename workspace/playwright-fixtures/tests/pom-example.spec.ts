@@ -1,14 +1,14 @@
 import { test, expect } from './page-object-models/fixtures';
 
 
-test('Get started link is working as expected', async ({ landingPageModel, docsPageModel }) => {
-    await landingPageModel.goto();
-    await landingPageModel.getStarted();
-    await expect(docsPageModel.installation).toBeVisible();
+test.only('Get started link is working as expected', async ({ landingPage, docsPage }) => {
+    await landingPage.goto();
+    await landingPage.getStarted();
+    await expect(docsPage.installation).toBeVisible();
 });
 
-test('should show Page Object Model article', async ({ docsPageModel }) => {
-    await docsPageModel.goto();
-    await docsPageModel.pageObjectModel();
-    await expect(docsPageModel.article).toContainText('Page Object Model is a common pattern');
+test('should show Page Object Model article', async ({ docsPage }) => {
+    await docsPage.goto();
+    await docsPage.pageObjectModel();
+    await expect(docsPage.article).toContainText('Page Object Model is a common pattern');
 });
