@@ -1,7 +1,6 @@
 import { test, expect } from './page-object-models/fixtures';
 
-
-test.only('Get started link is working as expected', async ({ landingPage, docsPage }) => {
+test('Get started link is working as expected @Canada', async ({ landingPage, docsPage }) => {
     await landingPage.goto();
     await landingPage.getStarted();
     await expect(docsPage.installation).toBeVisible();
